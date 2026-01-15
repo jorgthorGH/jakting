@@ -8,6 +8,7 @@ class AppAssets {
   static const String loginIcon = 'assets/images/loginIcon.png';
   static const String regiIcon = 'assets/images/regiIcon.png';
   static const String jaktingHeaderFull = 'assets/images/jaktingFull.png';
-  static const String logoSVG = 'assets/images/Logo.svg';
   static const String vippsLogo = 'assets/images/vippsLogo.png';
+  static const String logoVectorSVG = 'assets/images/logoVector.svg';
+  static const String logoSmall = 'assets/images/logoSmall.svg';
 }

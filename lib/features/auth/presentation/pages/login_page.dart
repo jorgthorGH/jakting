@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/utils/extensions.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
 import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/header_medium.dart';
+
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/custom_text_field.dart';
@@ -23,23 +25,12 @@ class LoginPage extends StatelessWidget {
             left: 0,
             right: 0,
             height: headerHeight,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.asset(
-                  AppAssets.jaktingHeader,
-                  height: double.infinity,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                Positioned(
-                  left: 30,
-                  child: Image.asset(AppAssets.logoVector),
-                ),
-              ],
+            child: HeaderMedium(
+              height: context.height * 0.30,
+              logoBottomOffset: 30,
+              logoWidthPercent: 0.50,
             ),
           ),
-
 
           // SKJEMA
           SingleChildScrollView(
