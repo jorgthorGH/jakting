@@ -7,6 +7,7 @@ import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaktapp/features/auth/presentation/pages/register_new_person.dart';
 
 import '../../../../core/utils/extensions.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -60,7 +61,10 @@ class _UserHomePageState extends State<UserHomePage> {
                           text: "Registrer ny person",
                           btnIcon: AppAssets.personWhite,
                           onPressed: () {
-                            print("Registrer ny person");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const RegisterNewPerson()),
+                            );
                           },
                           btnColor: AppColors.primaryBtnColor,
                           textColor: Colors.white,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jaktapp/features/auth/presentation/pages/login_page.dart';
+import 'package:jaktapp/features/auth/presentation/pages/home_page.dart';
 import 'package:jaktapp/features/home/presentation/pages/main_navigation.dart';
 
 /// Wrapper that decides whether to show auth screens or main app.
@@ -37,7 +37,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
       return const MainNavigation();
     } else {
       // User is not logged in - show login page
-      return const LoginPage();
+      return const HomePage();
     }
   }
 }

@@ -38,6 +38,34 @@ class _RegisterNewPersonState extends State<RegisterNewPerson> {
     }
   }
 
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: AppColors.primaryBtnColor,
+              onPrimary: AppColors.white,
+              onSurface: AppColors.hintText,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (picked != null) {
+      setState(() {
+        _dobController.text =
+            "${picked.day.toString().padLeft(2, '0')}.${picked.month.toString().padLeft(2, '0')}.${picked.year}";
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final headerHeight = context.height * 0.20;
@@ -74,7 +102,7 @@ class _RegisterNewPersonState extends State<RegisterNewPerson> {
                       controller: _nameController,
                     ),
                     DropdownButtonFormField<String>(
-                      value: _selectedGender,
+                      initialValue: _selectedGender,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -116,10 +144,15 @@ class _RegisterNewPersonState extends State<RegisterNewPerson> {
                         });
                       },
                     ),
-                    CustomTextField(
-                      hintText: "Fødselsdato",
-                      iconPath: AppAssets.calendarIcon,
-                      controller: _dobController,
+                    GestureDetector(
+                      onTap: () => _selectDate(context),
+                      child: AbsorbPointer(
+                        child: CustomTextField(
+                          hintText: "Fødselsdato",
+                          iconPath: AppAssets.calendarIcon,
+                          controller: _dobController,
+                        ),
+                      ),
                     ),
                     CustomButton(
                       text: "Registrer",
