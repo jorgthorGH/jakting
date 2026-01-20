@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/widgets/custom_navbar.dart';
+import '../../../auth/presentation/pages/login_page.dart';
+import '../../../auth/presentation/pages/user_home_page.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -14,8 +16,8 @@ class _MainNavigationState extends State<MainNavigation> {
 
   // Replace these with your actual page widgets
   final List<Widget> _pages = [
-    const _PlaceholderPage(title: 'Terreng'),
-    const _PlaceholderPage(title: 'Varsler'),
+    const UserHomePage(),
+    const LoginPage(),
     const _PlaceholderPage(title: 'Min Side'),
     const _PlaceholderPage(title: 'Mer'),
   ];
