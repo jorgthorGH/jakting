@@ -43,7 +43,7 @@ class BottomCard extends StatelessWidget {
           const SizedBox(height: 15),
 
           Center(
-            child: CustomButton(
+        child: CustomButton(
               text: buttonText,
               btnIcon: btnIcon,
               btnColor: btnColor,

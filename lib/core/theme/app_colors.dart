@@ -9,4 +9,6 @@ class AppColors {
   static const Color cardBackground = Color(0xFF202020);
   static const Color vippsColor = Color(0xff565656);
   static const Color checkColor = Color.fromRGBO(207, 150, 15, 1);
+  static const Color suksess = Color.fromRGBO(44, 165, 13, 1);
+  static const Color greyWhite = Color.fromRGBO(255, 255, 255, 0.9);
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../theme/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -7,6 +8,9 @@ class CustomTextField extends StatelessWidget {
   final String iconPath;
   final bool obscureText;
   final String? smallText;
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
+  final Color? color;
 
   const CustomTextField({
     super.key,
@@ -14,16 +18,21 @@ class CustomTextField extends StatelessWidget {
     required this.iconPath,
     this.obscureText = false,
     this.smallText,
+    this.controller,
+    this.keyboardType,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       obscureText: obscureText,
+      keyboardType: keyboardType,
       style: const TextStyle(color: AppColors.hintText),
       decoration: InputDecoration(
         filled: true,
-        fillColor: AppColors.white,
+        fillColor: color ?? Colors.white,
         hintText: null, // Remove default hintText
         label: Row(
           mainAxisSize: MainAxisSize.min,
