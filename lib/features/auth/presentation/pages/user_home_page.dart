@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
 import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_navbar.dart';
 import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
@@ -10,8 +11,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../../../core/theme/app_colors.dart';
 
-class UserHomePage extends StatelessWidget {
+class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
+
+  @override
+  State<UserHomePage> createState() => _UserHomePageState();
+}
+
+class _UserHomePageState extends State<UserHomePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +44,13 @@ class UserHomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   SizedBox(height: headerHeight),
 
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 30,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -61,10 +70,11 @@ class UserHomePage extends StatelessWidget {
                         const SizedBox(height: 30),
 
                         ItemCard(
-                            header: "Båt & henger",
-                            img: Image.asset(AppAssets.boat),
-                            reportUrl: "Lever fangstrapport", // Byttes ut med url til fangstrapport
-                            date: DateTime.now(), // Byttes ut med leietidspunkt
+                          header: "Båt & henger",
+                          img: Image.asset(AppAssets.boat),
+                          reportUrl: "Lever fangstrapport",
+                          // Byttes ut med url til fangstrapport
+                          date: DateTime.now(), // Byttes ut med leietidspunkt
                         ),
                       ],
                     ),
