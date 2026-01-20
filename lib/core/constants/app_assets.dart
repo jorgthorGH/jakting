@@ -11,4 +11,5 @@ class AppAssets {
   static const String vippsLogo = 'assets/images/vippsLogo.png';
   static const String logoVectorSVG = 'assets/images/logoVector.svg';
   static const String logoSmall = 'assets/images/logoSmall.svg';
+  static const String boat = 'assets/images/itemCard_boat.png';
 }

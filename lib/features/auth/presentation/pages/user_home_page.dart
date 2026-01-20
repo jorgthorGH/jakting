@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
 import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
+import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/utils/extensions.dart';
@@ -39,13 +42,31 @@ class UserHomePage extends StatelessWidget {
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                    child: Text(
-                      "Forrige turer",
-                      style: GoogleFonts.aleo(
-                        fontSize: 28,
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Forrige turer",
+                          style: GoogleFonts.aleo(
+                            fontSize: 28,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+
+                        const SizedBox(height: 30),
+
+                        InfoCard(),
+
+                        const SizedBox(height: 30),
+
+                        ItemCard(
+                            header: "Båt & henger",
+                            img: Image.asset(AppAssets.boat),
+                            reportUrl: "Lever fangstrapport", // Byttes ut med url til fangstrapport
+                            date: DateTime.now(), // Byttes ut med leietidspunkt
+                        ),
+                      ],
                     ),
                   ),
                 ],
