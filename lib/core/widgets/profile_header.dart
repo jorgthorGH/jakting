@@ -4,15 +4,16 @@ import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
+import '../../features/auth/presentation/pages/update_user.dart';
 
 class ProfileHeader extends StatelessWidget {
-  final double height;
+  final double? height;
   final double logoBottomOffset;
   final double logoWidthPercent;
 
   const ProfileHeader({
     super.key,
-    required this.height,
+    this.height,
     this.logoBottomOffset = 30,
     this.logoWidthPercent = 0.15,
   });
@@ -66,8 +67,12 @@ class ProfileHeader extends StatelessWidget {
                     const SizedBox(height: 4),
 
                     GestureDetector(
+                      behavior: HitTestBehavior.opaque,
                       onTap: () {
-                        print("Naviger til rediger profil...");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const UpdateUser()),
+                        );
                       },
                       child: Row(
                         children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/widgets/custom_navbar.dart';
+import 'package:jaktapp/features/auth/presentation/pages/update_user.dart';
 import '../../../auth/presentation/pages/login_page.dart';
 import '../../../auth/presentation/pages/user_home_page.dart';
 
@@ -18,7 +19,7 @@ class _MainNavigationState extends State<MainNavigation> {
   final List<Widget> _pages = [
     const UserHomePage(),
     const LoginPage(),
-    const _PlaceholderPage(title: 'Min Side'),
+    const UpdateUser(),
     const _PlaceholderPage(title: 'Mer'),
   ];
 

@@ -24,67 +24,67 @@ class _UserHomePageState extends State<UserHomePage> {
   Widget build(BuildContext context) {
     final headerHeight = context.height * 0.20;
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      body: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: ProfileHeader(
-              height: headerHeight,
-              logoBottomOffset: context.height * 0.04,
-            ),
-          ),
-
-          SingleChildScrollView(
-            child: SizedBox(
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: headerHeight),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 30,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Forrige turer",
-                          style: GoogleFonts.aleo(
-                            fontSize: 28,
-                            color: AppColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: SizedBox(
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: headerHeight),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Forrige turer",
+                        style: GoogleFonts.aleo(
+                          fontSize: 28,
+                          color: AppColors.white,
+                          fontWeight: FontWeight.bold,
                         ),
-
-                        const SizedBox(height: 30),
-
-                        InfoCard(),
-
-                        const SizedBox(height: 30),
-
-                        ItemCard(
-                          header: "Båt & henger",
-                          img: Image.asset(AppAssets.boat),
-                          reportUrl: "Lever fangstrapport",
-                          // Byttes ut med url til fangstrapport
-                          date: DateTime.now(), // Byttes ut med leietidspunkt
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 30),
+                      const InfoCard(),
+                      const SizedBox(height: 30),
+                      ItemCard(
+                        header: "Båt & henger",
+                        img: Image.asset(AppAssets.boat),
+                        reportUrl: "Lever fangstrapport",
+                        date: DateTime.now(),
+                      ),
+                      const SizedBox(height: 30),
+                      CustomButton(
+                          text: "Registrer ny person",
+                          btnIcon: AppAssets.personWhite,
+                          onPressed: () {
+                            print("Registrer ny person");
+                          },
+                          btnColor: AppColors.primaryBtnColor,
+                          textColor: Colors.white,
+                      ),
+                      const SizedBox(height: 30),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+
+        // 2. ProfileHeader ligger øverst i Stack så den kan trykkes på
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: ProfileHeader(
+            height: headerHeight,
+            logoBottomOffset: context.height * 0.04,
+          ),
+        ),
+      ],
     );
   }
 }
