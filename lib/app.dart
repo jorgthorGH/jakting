@@ -3,6 +3,7 @@ import 'package:jaktapp/features/auth/presentation/pages/register_new_person.dar
 import 'features/auth/presentation/pages/home_page.dart';
 import 'features/auth/presentation/pages/login_page.dart';
 import 'features/auth/presentation/pages/user_home_page.dart';
+import 'features/auth/presentation/pages/more_page.dart';
 import 'package:jaktapp/core/utils/auth_wrapper.dart';
 
 class MainApp extends StatelessWidget {

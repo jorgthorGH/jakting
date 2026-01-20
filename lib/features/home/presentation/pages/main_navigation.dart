@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/widgets/custom_navbar.dart';
 import 'package:jaktapp/features/auth/presentation/pages/update_user.dart';
+import '../../../../core/widgets/more_menu_sheet.dart';
 import '../../../auth/presentation/pages/login_page.dart';
+import '../../../auth/presentation/pages/more_page.dart';
 import '../../../auth/presentation/pages/user_home_page.dart';
 
 class MainNavigation extends StatefulWidget {
@@ -20,8 +22,17 @@ class _MainNavigationState extends State<MainNavigation> {
     const UserHomePage(),
     const LoginPage(),
     const UpdateUser(),
-    const _PlaceholderPage(title: 'Mer'),
+    const SizedBox(),
   ];
+
+  void _showMoreMenu() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, // Lar den bli høyere enn halve skjermen
+      backgroundColor: Colors.transparent,
+      builder: (context) => const MoreMenuSheet(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +42,13 @@ class _MainNavigationState extends State<MainNavigation> {
       bottomNavigationBar: CustomNavbar(
         currentIndex: _currentIndex,
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          if (index == 3) {
+            _showMoreMenu();
+          } else {
+            setState(() {
+              _currentIndex = index;
+            });
+          }
         },
       ),
     );
