@@ -20,7 +20,7 @@ class _MainNavigationState extends State<MainNavigation> {
   // Replace these with your actual page widgets
   final List<Widget> _pages = [
     const UserHomePage(),
-    const LoginPage(),
+    const _PlaceholderPage(title: "Varsler"),
     const UpdateUser(),
     const SizedBox(),
   ];

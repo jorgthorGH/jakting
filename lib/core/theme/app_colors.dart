@@ -9,6 +9,7 @@ class AppColors {
   static const Color cardBackground = Color(0xFF202020);
   static const Color vippsColor = Color(0xff565656);
   static const Color infoCardColor = Color(0xff292313);
+  static const Color whiteBtnText = Color(0xff0b1015);
   static const Gradient itemCardBackground = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

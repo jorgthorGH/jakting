@@ -27,4 +27,5 @@ class AppAssets {
   static const String personWhite = 'assets/images/personWhite.png';
   static const String genderIcon = 'assets/images/genderIcon.png';
   static const String calendarIcon = 'assets/images/calendarIcon.png';
+  static const String phoneIcon = 'assets/images/phoneIcon.png';
 }

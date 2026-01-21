@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/list_link_items.dart';
-import '../../../../core/widgets/profile_header.dart'; // Hvis du vil ha headeren her også
+import '../../../../core/widgets/profile_header.dart';
+import '../../features/auth/presentation/pages/more_faq.dart'; // Hvis du vil ha headeren her også
 
 class MoreMenuSheet extends StatelessWidget {
   const MoreMenuSheet({super.key});
@@ -49,7 +50,12 @@ class MoreMenuSheet extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               children: [
-                MoreLinkItem(title: "Ofte stilte spørsmål", onTap: () {}),
+                MoreLinkItem(title: "Ofte stilte spørsmål", onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MoreFaq()),
+                  );
+                }),
                 MoreLinkItem(title: "Jaktregler", onTap: () {}),
                 MoreLinkItem(title: "Jaktutvalg", onTap: () {}),
                 MoreLinkItem(title: "Terrenggrenser til GPS", onTap: () {}),
