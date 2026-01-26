@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../core/constants/app_assets.dart';
-import '../../../../core/utils/extensions.dart';
 
 class ItemCard extends StatelessWidget {
   final Image? img;

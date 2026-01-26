@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final Color? color;
+  final bool showEditIcon;
 
   const CustomTextField({
     super.key,
@@ -21,8 +22,8 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.color,
+   this.showEditIcon = false, 
   });
-
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -33,29 +34,23 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: color ?? Colors.white,
-        hintText: null, // Remove default hintText
-        label: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              hintText,
-              style: GoogleFonts.poppins(color: AppColors.hintText),
-            ),
-            if (smallText != null)
-              Text(
-                ' $smallText',
-                style: GoogleFonts.poppins(
-                  color: AppColors.hintText,
-                  fontSize: 10, // Smaller font size
-                ),
-              ),
-          ],
-        ),
+        hintText: smallText != null ? '$hintText $smallText' : hintText,
+        hintStyle: GoogleFonts.poppins(color: AppColors.hintText),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         prefixIcon: Padding(
           padding: const EdgeInsets.all(12),
           child: Image.asset(iconPath, width: 20, height: 20),
         ),
+        suffixIcon: showEditIcon
+            ? Padding(
+                padding: const EdgeInsets.all(12),
+                child: Image.asset(
+                  'assets/images/editinput.png', // Or AppAssets.editInput if you add it there
+                  width: 32,
+                  height: 32,
+                ),
+              )
+            : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide.none,

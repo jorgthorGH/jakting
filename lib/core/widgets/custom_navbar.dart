@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
-import 'package:jaktapp/core/theme/app_colors.dart';
+
 
 class CustomNavbar extends StatelessWidget {
   final int currentIndex;
@@ -14,17 +14,20 @@ class CustomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.greyWhite,
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+    return SafeArea(
+      top: false,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 15, right: 15), // More bottom padding
+        child: Container(
+          height: 65, // Match Figma height
+          decoration: BoxDecoration(
+            color: Colors.white, // Pure white background
+            borderRadius: BorderRadius.circular(32), // More pill-shaped
+          ),
+          
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _NavBarItem(
                 selectedImage: AppAssets.terrengNav,
@@ -76,11 +79,15 @@ class _NavBarItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        child: Image.asset(
-          isSelected ? selectedImage : unselectedImage,
-          height: 40,
+      child: SizedBox(
+        width: 80, // Make tap area larger and icons more centered
+        height: 80,
+        child: Center(
+          child: Image.asset(
+            isSelected ? selectedImage : unselectedImage,
+            height: 80, // Icon size
+            width: 80,
+          ),
         ),
       ),
     );
