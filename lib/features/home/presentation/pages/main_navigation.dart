@@ -5,6 +5,7 @@ import 'package:jaktapp/features/auth/presentation/pages/update_user.dart';
 import '../../../../core/widgets/more_menu_sheet.dart';
 import '../../../auth/presentation/pages/login_page.dart';
 import '../../../auth/presentation/pages/more_page.dart';
+import '../../../auth/presentation/pages/terreng_page.dart';
 import '../../../auth/presentation/pages/user_home_page.dart';
 
 class MainNavigation extends StatefulWidget {
@@ -19,9 +20,9 @@ class _MainNavigationState extends State<MainNavigation> {
 
   // Replace these with your actual page widgets
   final List<Widget> _pages = [
-    const UserHomePage(),
+    const TerrengPage(),
     const _PlaceholderPage(title: "Varsler"),
-    const UpdateUser(),
+    const UserHomePage(),
     const SizedBox(),
   ];
 

@@ -3,14 +3,12 @@ import 'package:jaktapp/core/widgets/card_scrollable.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/scrollable_daypicker.dart';
 
-import '../../../../core/constants/app_assets_terreng.dart';
 import '../../../../core/data/mock_terreng_data.dart';
-import '../../../../core/models/terreng_data.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
 
-class Terreng extends StatelessWidget {
-  const Terreng({super.key});
+class TerrengPage extends StatelessWidget {
+  const TerrengPage({super.key});
 
   @override
   Widget build(BuildContext context) {
