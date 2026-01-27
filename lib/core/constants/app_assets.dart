@@ -9,7 +9,6 @@ class AppAssets {
   static const String vippsLogo = 'assets/images/vippsLogo.png';
   static const String logoVectorSVG = 'assets/images/logoVector.svg';
   static const String logoSmall = 'assets/images/logoSmall.svg';
-  static const String boat = 'assets/images/itemCard_boat.png';
   static const String iconPerson = 'assets/images/person.png';
   static const String iconRegistrer = 'assets/images/registrer.png';
   static const String iconTelefon = 'assets/images/telefon.png';

@@ -57,13 +57,6 @@ class _UserHomePageState extends State<UserHomePage> {
                               "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                         ),
                         const SizedBox(height: 30),
-                        ItemCard(
-                          header: "Båt & henger",
-                          img: Image.asset(AppAssets.boat),
-                          reportUrl: "Lever fangstrapport",
-                          date: DateTime.now(),
-                        ),
-                        const SizedBox(height: 30),
                         CustomButton(
                           text: "Registrer ny person",
                           btnIcon: AppAssets.personWhite,
