@@ -2,34 +2,67 @@ import 'package:flutter/material.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/small_info_box.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
 
 class InfoCard extends StatelessWidget {
   final String text;
+  final Color backgroundColor;
   final CustomButton? btn;
+  final String? imagePath;
 
-  const InfoCard({super.key, required this.text, this.btn});
+  const InfoCard({
+    super.key,
+    required this.text,
+    required this.backgroundColor,
+    this.btn,
+    this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
+    backgroundColor;
     return Container(
-      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppColors.infoCardColor,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            text,
-            style: GoogleFonts.poppins(color: AppColors.white, fontSize: 14),
-          ),
-          if (btn != null) ...[
+          if (imagePath != null) ...[
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+              child: Image.asset(
+                imagePath!,
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
             const SizedBox(height: 10),
-            btn!,
           ],
+
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: GoogleFonts.poppins(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0,
+                    fontSize: 14,
+                  ),
+                ),
+
+                if (btn != null) ...[const SizedBox(height: 20), btn!],
+              ],
+            ),
+          ),
         ],
       ),
     );

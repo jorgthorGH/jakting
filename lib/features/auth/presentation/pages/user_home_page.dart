@@ -53,10 +53,6 @@ class _UserHomePageState extends State<UserHomePage> {
                           ),
                         ),
                         const SizedBox(height: 30),
-                        InfoCard(
-                          text:
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-                        ),
                         const SizedBox(height: 30),
                         CustomButton(
                           text: "Registrer ny person",
