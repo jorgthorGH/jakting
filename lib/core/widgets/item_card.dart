@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// Dette kortet skal brukes på en brukers egen profil/Min Side.
 
 class ItemCard extends StatelessWidget {
   final Image? img;

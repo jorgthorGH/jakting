@@ -6,6 +6,8 @@ import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../features/auth/presentation/pages/update_user.dart';
 
+// Headeren som vises for en innlogget bruker. Bruker foreløpig placeholder navn gjennom utvikling av frontend.
+
 class ProfileHeader extends StatelessWidget {
   final double? height;
   final double logoBottomOffset;

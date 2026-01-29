@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_colors.dart';
 import '../utils/extensions.dart';
 
+// Klassen oppretter en horisontalt scrollbar datovelger. Brukes i terreng- og utstyroversikten.
+
 class ScrollableDayPicker extends StatefulWidget {
   final Function(DateTime) onDateSelected;
 

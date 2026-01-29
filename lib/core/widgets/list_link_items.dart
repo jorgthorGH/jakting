@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
 
+// Klassen oppretter en liste med lenker for mer-knappen i navbar, med blant annet lenke til FAQ/ofte stilte spørsmål.
+
 class MoreLinkItem extends StatelessWidget {
   final String title;
   final VoidCallback onTap;

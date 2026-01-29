@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 
+// Foreløpig navbar i bunn av skjermen. Skal mulig byttes? Laget av Khalif.
+
 class CustomNavbar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;

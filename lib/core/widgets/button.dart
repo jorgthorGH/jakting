@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../utils/extensions.dart';
+
+// Universal knapp som brukes flere steder gjennom appen.
 
 class CustomButton extends StatelessWidget {
   final String text;

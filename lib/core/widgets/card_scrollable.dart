@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/utils/extensions.dart';
 
+// Kortene som vises i terreng- og utstyrsoversikt med et bilde, en tittel og om terreng/utstyret er ledig for leie eller ikke.
+
 class CardScrollable extends StatelessWidget {
   final String title;
   final String img;

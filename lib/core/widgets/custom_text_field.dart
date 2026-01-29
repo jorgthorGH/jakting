@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_colors.dart';
 
+// Tekstfelt som brukes for registrering- og loginskjemaer.
+
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final String iconPath;

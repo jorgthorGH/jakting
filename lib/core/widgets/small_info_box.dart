@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
+
+// En liten infobox der tilleggsinformasjon kan legges til for f.eks utleie av båt og henger.
 
 class SmallInfoBox extends StatelessWidget {
   final String text;

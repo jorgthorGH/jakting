@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/widgets/button.dart';
 import '../theme/app_colors.dart';
 
+// Ofte stilte spørsmål
+
 class FaqCard extends StatelessWidget {
 
   final String question;

@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'button.dart';
 
+// Et kort som vises på bunnen av home_page og login_page.
+// Hvis brukeren ikke har konto på login_page, kan bruker trykke på knapp på dette kortet for å komme til registrering.
+
 class BottomCard extends StatelessWidget {
   final String descriptionText;
   final String buttonText;

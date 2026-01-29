@@ -25,6 +25,7 @@ class AppAssets {
   static const String loginIcon = 'assets/images/loginIcon.png';
   static const String regiIcon = 'assets/images/regiIcon.png';
   static const String terrengIcon = 'assets/images/terrengIcon.png';
+  static const String reserveIcon = 'assets/images/reserveIcon.png';
 
   // Logo/header
   static const String jaktingHeader = 'assets/images/jakting.png';

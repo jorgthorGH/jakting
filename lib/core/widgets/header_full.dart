@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
 
+// Headeren som vises for en bruker som ikke er logget inn og/eller ikke har opprettet bruker. Landingsside ved åpning av app
+
 class HeaderFull extends StatelessWidget {
   final double height;
   final double logoBottomOffset;

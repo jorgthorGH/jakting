@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/list_link_items.dart';
 import '../../../../core/widgets/profile_header.dart';
-import '../../features/auth/presentation/pages/more_faq.dart'; // Hvis du vil ha headeren her også
+import '../../features/auth/presentation/pages/more_faq.dart';
+
+// Den faktiske mer-siden. Åpnes når en bruker trykker på "Mer" i navbar.
 
 class MoreMenuSheet extends StatelessWidget {
   const MoreMenuSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Vi bruker en Container for å styre bakgrunnsfarge og avrundede hjørner
     return Container(
-      height: MediaQuery.of(context).size.height * 0.80, // Dekker 85% av skjermen
+      height: MediaQuery.of(context).size.height * 0.80,
       decoration: const BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
@@ -20,7 +21,6 @@ class MoreMenuSheet extends StatelessWidget {
         children: [
           const SizedBox(height: 15),
 
-          // --- Lukkeknapp og evt tittel ---
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -40,12 +40,8 @@ class MoreMenuSheet extends StatelessWidget {
             ),
           ),
 
-          // --- Header (Valgfritt om du vil ha den inni menyen) ---
-          // ProfileHeader(height: 100, logoBottomOffset: 0),
-
           const SizedBox(height: 10),
 
-          // --- Listen ---
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 30),

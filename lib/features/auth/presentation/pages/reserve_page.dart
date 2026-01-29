@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/constants/app_assets_terreng.dart';
+import 'package:jaktapp/core/widgets/button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
@@ -49,10 +50,22 @@ class ReservePage extends StatelessWidget {
                         children: [
                           InfoCard(
                             backgroundColor: AppColors.infoCardColorSecondary,
-                            imagePath: AppAssetsTerreng.boat,
-                            text: "Båt med henger og elektrisk påhengsmotor står i container ved Meitjenn for utlån til våre medlemmer. "
-                                  " Nøkkelen kan hentes i skap på Wattenberg(7-Eleven) i Skien. Båten er 14 fot. \n\n"
-                                  "Redningsvester og årer ligger også i container"
+                            imagePath: terreng.img,
+                            text: terreng.content,
+                            infoBox: terreng.info != null
+                                ? SmallInfoBox(text: terreng.info!)
+                                : null,
+
+                            // Mangler valgt dato fra bruker og ledighet/tilgjengelighet
+
+                            btn: CustomButton(
+                                text: "Reserver",
+                                btnIcon: AppAssets.reserveIcon,
+                                onPressed: () {},
+                                btnColor: AppColors.primaryBtnColor,
+                                textColor: AppColors.white,
+                                width: context.width,
+                            ),
                           ),
                         ],
                       ),

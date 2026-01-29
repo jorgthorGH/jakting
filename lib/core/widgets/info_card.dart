@@ -3,14 +3,15 @@ import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/widgets/button.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
-import '../../../../core/constants/app_assets.dart';
-import '../../../../core/utils/extensions.dart';
+
+// Et kort som viser informasjon om valgt terreng/utstyr. Navnet på klassen bør endres for å bedre reflektere hva det faktisk er og brukes til.
 
 class InfoCard extends StatelessWidget {
   final String text;
   final Color backgroundColor;
   final CustomButton? btn;
   final String? imagePath;
+  final SmallInfoBox? infoBox;
 
   const InfoCard({
     super.key,
@@ -18,6 +19,7 @@ class InfoCard extends StatelessWidget {
     required this.backgroundColor,
     this.btn,
     this.imagePath,
+    this.infoBox,
   });
 
   @override
@@ -58,7 +60,6 @@ class InfoCard extends StatelessWidget {
                     fontSize: 14,
                   ),
                 ),
-
                 if (btn != null) ...[const SizedBox(height: 20), btn!],
               ],
             ),

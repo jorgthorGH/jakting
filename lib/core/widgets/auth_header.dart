@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_assets.dart';
 
+// Headeren som brukes av innlogget bruker
+
+
 class AuthHeader extends StatelessWidget {
   const AuthHeader({super.key});
 
