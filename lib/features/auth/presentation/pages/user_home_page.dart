@@ -7,7 +7,7 @@ import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jaktapp/features/auth/presentation/pages/register_new_person.dart';
+import 'package:jaktapp/features/auth/presentation/pages/reg_new_user.dart';
 import 'package:jaktapp/features/auth/presentation/pages/terreng_page.dart';
 
 import '../../../../core/utils/extensions.dart';

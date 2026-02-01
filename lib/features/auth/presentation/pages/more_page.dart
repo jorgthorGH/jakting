@@ -3,7 +3,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../../../core/widgets/list_link_items.dart';
 import '../../../../core/widgets/profile_header.dart';
-import 'package:jaktapp/features/auth/presentation/pages/more_faq.dart';
+import 'package:jaktapp/features/auth/presentation/pages/faq.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});

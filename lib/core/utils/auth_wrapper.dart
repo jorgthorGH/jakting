@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jaktapp/features/auth/presentation/pages/home_page.dart';
+import 'package:jaktapp/features/auth/presentation/pages/landing_page.dart';
 import 'package:jaktapp/features/home/presentation/pages/main_navigation.dart';
 
 /// Wrapper that decides whether to show auth screens or main app.

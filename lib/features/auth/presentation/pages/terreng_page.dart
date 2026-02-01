@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jaktapp/core/widgets/card_scrollable.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/scrollable_daypicker.dart';
-import 'package:jaktapp/features/auth/presentation/pages/reserve_page.dart';
+import 'package:jaktapp/features/auth/presentation/pages/item_overview.dart';
 
 import '../../../../core/data/mock_terreng_data.dart';
 import '../../../../core/theme/app_colors.dart';

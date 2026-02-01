@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/list_link_items.dart';
 import '../../../../core/widgets/profile_header.dart';
-import '../../features/auth/presentation/pages/more_faq.dart';
+import '../../features/auth/presentation/pages/faq.dart';
 
 // Den faktiske mer-siden. Åpnes når en bruker trykker på "Mer" i navbar.
 
