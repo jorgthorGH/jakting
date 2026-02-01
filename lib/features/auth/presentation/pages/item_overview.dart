@@ -10,10 +10,10 @@ import '../../../../core/models/terreng_data.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
 
-class ReservePage extends StatelessWidget {
+class ItemOverview extends StatelessWidget {
   final TerrengData terreng;
 
-  const ReservePage({super.key, required this.terreng});
+  const ItemOverview({super.key, required this.terreng});
 
   @override
   Widget build(BuildContext context) {

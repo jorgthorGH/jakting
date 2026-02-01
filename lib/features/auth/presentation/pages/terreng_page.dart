@@ -13,7 +13,6 @@ class TerrengPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final data = MockTerrengData.list;
 
     return Scaffold(
@@ -54,9 +53,7 @@ class TerrengPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ReservePage(
-                          terreng: item,
-                        ),
+                        builder: (context) => ItemOverview(terreng: item),
                       ),
                     );
                   },
