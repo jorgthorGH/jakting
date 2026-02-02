@@ -7,7 +7,9 @@ import '../../features/auth/presentation/pages/faq.dart';
 // Den faktiske mer-siden. Åpnes når en bruker trykker på "Mer" i navbar.
 
 class MoreMenuSheet extends StatelessWidget {
-  const MoreMenuSheet({super.key});
+  final Function(Widget) onNavigate;
+
+  const MoreMenuSheet({super.key, required this.onNavigate});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +49,7 @@ class MoreMenuSheet extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               children: [
                 MoreLinkItem(title: "Ofte stilte spørsmål", onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MoreFaq()),
-                  );
+                  onNavigate(const Scaffold(body: MoreFaq()));
                 }),
                 MoreLinkItem(title: "Jaktregler", onTap: () {}),
                 MoreLinkItem(title: "Jaktutvalg", onTap: () {}),

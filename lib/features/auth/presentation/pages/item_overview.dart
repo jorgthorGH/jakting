@@ -4,6 +4,7 @@ import 'package:jaktapp/core/widgets/button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
+import 'package:jaktapp/features/auth/presentation/pages/reserve_page.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/models/terreng_data.dart';
@@ -12,8 +13,10 @@ import '../../../../core/utils/extensions.dart';
 
 class ItemOverview extends StatelessWidget {
   final TerrengData terreng;
+  final DateTime selectedDate;
 
-  const ItemOverview({super.key, required this.terreng});
+
+  const ItemOverview({super.key, required this.terreng, required this.selectedDate});
 
   @override
   Widget build(BuildContext context) {
@@ -54,13 +57,22 @@ class ItemOverview extends StatelessWidget {
                             infoBox: terreng.info != null
                                 ? SmallInfoBox(text: terreng.info!)
                                 : null,
+                            date: "${selectedDate.day}.${selectedDate.month}.${selectedDate.year}",
+                            isAvailable: terreng.isAvailable,
 
                             // Mangler valgt dato fra bruker og ledighet/tilgjengelighet
 
                             btn: CustomButton(
                                 text: "Reserver",
                                 btnIcon: AppAssets.reserveIcon,
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ReservePage(terreng: terreng, selectedDate: selectedDate),
+                                    ),
+                                  );
+                                },
                                 btnColor: AppColors.primaryBtnColor,
                                 textColor: AppColors.white,
                                 width: context.width,

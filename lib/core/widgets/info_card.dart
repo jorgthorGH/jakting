@@ -12,11 +12,15 @@ class InfoCard extends StatelessWidget {
   final CustomButton? btn;
   final String? imagePath;
   final SmallInfoBox? infoBox;
+  final String date;
+  final bool isAvailable;
 
   const InfoCard({
     super.key,
     required this.text,
     required this.backgroundColor,
+    required this.date,
+    required this.isAvailable,
     this.btn,
     this.imagePath,
     this.infoBox,
@@ -60,7 +64,57 @@ class InfoCard extends StatelessWidget {
                     fontSize: 14,
                   ),
                 ),
+                const SizedBox(height: 20),
+                if (infoBox != null) ...[infoBox!],
                 if (btn != null) ...[const SizedBox(height: 20), btn!],
+                const SizedBox(height: 20),
+
+                Row(
+                  children: [
+                    const Icon(Icons.calendar_today_outlined, color: AppColors.white, size: 18),
+                    const SizedBox(width: 5),
+                    Text(
+                      date,
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Spacer(),
+
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: AppColors.cardBackground,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            isAvailable ? "Ledig" : "Ikke tilgjengelig",
+                            style: GoogleFonts.poppins(
+                              color: AppColors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+
+                          Container(
+                            width: 10,
+                            height: 10,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: isAvailable ? Colors.green : Colors.red,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

@@ -8,8 +8,15 @@ import '../../../../core/data/mock_terreng_data.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
 
-class TerrengPage extends StatelessWidget {
+class TerrengPage extends StatefulWidget {
   const TerrengPage({super.key});
+
+  @override
+  State<TerrengPage> createState() => _TerrengPageState();
+}
+
+class _TerrengPageState extends State<TerrengPage> {
+  DateTime _selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +35,11 @@ class TerrengPage extends StatelessWidget {
             child: Column(
               children: [
                 ScrollableDayPicker(
-                  onDateSelected: (selectedDate) {
-                    print("Bruker valgte: $selectedDate");
+                  onDateSelected: (newDate) {
+                    setState(() {
+                      _selectedDate = newDate;
+                    });
+                    print("Bruker valgte: $_selectedDate");
                   },
                 ),
               ],
@@ -53,7 +63,7 @@ class TerrengPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ItemOverview(terreng: item),
+                        builder: (context) => ItemOverview(terreng: item, selectedDate: _selectedDate),
                       ),
                     );
                   },

@@ -24,7 +24,7 @@ class CustomNavbar extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          padding: const EdgeInsets.all(0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -79,7 +79,7 @@ class _NavBarItem extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         child: Image.asset(
           isSelected ? selectedImage : unselectedImage,
           height: 40,
