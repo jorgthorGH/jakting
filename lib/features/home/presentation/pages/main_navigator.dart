@@ -6,6 +6,10 @@ import 'package:jaktapp/features/auth/presentation/pages/user_home_page.dart';
 
 import '../../../../core/widgets/more_menu_sheet.dart';
 
+// BUG: Tilstanden huskes ikke ved bruk av Mer-meny om bruker går inn på en av lenken her.
+// Bruker blir tatt tilbake til Terreng-oversikten, men bør heller bli navigert tilbake
+// der brukeren var. (F.eks Bår & Henger -> Reserver)
+
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
 
@@ -23,10 +27,23 @@ class _MainNavigationState extends State<MainNavigator> {
     GlobalKey<NavigatorState>(),
   ];
 
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      _buildNavigator(_navigatorKeys[0], const TerrengPage()),
+      _buildNavigator(_navigatorKeys[1], const Center(child: Text("Varsler", style: TextStyle(color: AppColors.white)))),
+      _buildNavigator(_navigatorKeys[2], const UserHomePage()),
+      const SizedBox(),
+    ];
+  }
+
   void _showMoreMenu() {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // Lar den bli høyere enn halve skjermen
+      isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => MoreMenuSheet(
         onNavigate: (Widget page) {
@@ -81,12 +98,7 @@ class _MainNavigationState extends State<MainNavigator> {
         backgroundColor: AppColors.background,
         body: IndexedStack(
           index: _currentIndex,
-          children: [
-            _buildNavigator(_navigatorKeys[0], const TerrengPage()),
-            _buildNavigator(_navigatorKeys[1], const Center(child: Text("Varlser", style: TextStyle(color: AppColors.white)))),
-            _buildNavigator(_navigatorKeys[2], const UserHomePage()),
-            const SizedBox(),
-          ],
+          children: _pages,
         ),
         bottomNavigationBar: CustomNavbar(
           currentIndex: _currentIndex,
