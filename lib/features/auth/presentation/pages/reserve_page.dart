@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
+import 'package:jaktapp/features/auth/presentation/pages/fill_out_hunt_card.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/models/terreng_data.dart';
@@ -58,7 +59,12 @@ class ReservePage extends StatelessWidget {
                       CustomButton(
                         text: "Fyll ut jaktkort",
                         btnIcon: AppAssets.huntCardIcon,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => FillOutHuntCard())
+                          );
+                        },
                         btnColor: AppColors.primaryBtnColor,
                         textColor: AppColors.white,
                         width: context.width,

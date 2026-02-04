@@ -30,6 +30,7 @@ class _TerrengPageState extends State<TerrengPage> {
             height: context.height * 0.20,
             logoBottomOffset: context.height * 0.04,
           ),
+
           Padding(
             padding: const EdgeInsets.all(30),
             child: Column(
@@ -45,6 +46,7 @@ class _TerrengPageState extends State<TerrengPage> {
               ],
             ),
           ),
+
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 30),

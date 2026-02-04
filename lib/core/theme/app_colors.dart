@@ -6,6 +6,7 @@ class AppColors {
   static const Color hintText = Color(0xFF5F5F5F);
   static const Color primaryBtnColor = Color(0xFFCF960F);
   static const Color secondaryBtnColor = Color(0xFF353535);
+  static const Color tertiaryBtnColor = Color(0xff363636);
   static const Color cardBackground = Color(0xFF202020);
   static const Color vippsColor = Color(0xff565656);
   static const Color infoCardColor = Color(0xff292313);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/custom_text_field.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 

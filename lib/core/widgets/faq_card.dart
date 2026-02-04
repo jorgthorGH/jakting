@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../core/widgets/button.dart';
+import '../../../../core/widgets/custom_button.dart';
 import '../theme/app_colors.dart';
 
 // Ofte stilte spørsmål

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
@@ -59,8 +59,6 @@ class ItemOverview extends StatelessWidget {
                                 : null,
                             date: "${selectedDate.day}.${selectedDate.month}.${selectedDate.year}",
                             isAvailable: terreng.isAvailable,
-
-                            // Mangler valgt dato fra bruker og ledighet/tilgjengelighet
 
                             btn: CustomButton(
                                 text: "Reserver",

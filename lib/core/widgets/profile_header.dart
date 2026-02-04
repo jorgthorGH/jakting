@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jaktapp/core/models/user_model.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../features/auth/presentation/pages/update_user.dart';
+import '../data/mock_user_data.dart';
 
 // Headeren som vises for en innlogget bruker. Bruker foreløpig placeholder navn gjennom utvikling av frontend.
 
@@ -12,18 +14,19 @@ class ProfileHeader extends StatelessWidget {
   final double? height;
   final double logoBottomOffset;
   final double logoWidthPercent;
+  final UserModel? user;
 
   const ProfileHeader({
     super.key,
     this.height,
     this.logoBottomOffset = 30,
     this.logoWidthPercent = 0.15,
+    this.user,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Placeholders
-    const String userName = "Kari Nordmann";
+    final currentUser = user ?? MockUserData.profile;
 
     return SizedBox(
       height: height,
@@ -58,7 +61,7 @@ class ProfileHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      userName,
+                      currentUser.name,
                       style: GoogleFonts.poppins(
                         color: AppColors.white,
                         fontSize: 18,

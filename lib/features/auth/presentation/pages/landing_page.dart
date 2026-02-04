@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/header_full.dart';
 
 import '../../../../features/auth/presentation/pages/login_page.dart';

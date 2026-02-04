@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/custom_navbar.dart';
 import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
