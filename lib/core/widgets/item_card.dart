@@ -5,57 +5,43 @@ import 'package:google_fonts/google_fonts.dart';
 // Dette kortet skal brukes på en brukers egen profil/Min Side.
 
 class ItemCard extends StatelessWidget {
-  final Image? img;
-  final String header;
-  final String reportUrl;
-  final DateTime date;
+  final String imagePath;
+  final String headText;
+  final String? statusTag;
+  final String? dateTag;
 
   const ItemCard({
     super.key,
-    this.img,
-    required this.header,
-    required this.reportUrl,
-    required this.date,
+    required this.imagePath,
+    required this.headText,
+    this.statusTag,
+    this.dateTag,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: AppColors.itemCardBackground,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          imagePath,
+          height: 78,
+          width: double.infinity,
+          fit: BoxFit.cover,
+        ),
+
+        Column(
           children: [
-            if (img != null) ...[
-              img!,
-              const SizedBox(height: 10),
-            ],
             Text(
-              header,
+              headText,
               style: GoogleFonts.poppins(
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: AppColors.white,
-              ),
-            ),
-
-            const SizedBox(height: 5),
-
-            Text(
-              reportUrl,
-              style: const TextStyle(
-                color: AppColors.primaryBtnColor,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],
         ),
-      ),
+      ],
     );
   }
 }
