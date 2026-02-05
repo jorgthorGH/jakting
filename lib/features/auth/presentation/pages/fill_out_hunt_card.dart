@@ -17,30 +17,31 @@ class FillOutHuntCard extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ProfileHeader(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const ProfileHeader(),
 
-          Padding(
-            padding: const EdgeInsets.all(30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SectionHeader("Fyll ut jaktkort"),
+            Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SectionHeader("Fyll ut jaktkort"),
 
-                UserInfoCard(
+                  UserInfoCard(
                     userName: MockUserData.profile.name,
                     phone: MockUserData.profile.phone,
                     editLink: "Endre nummer",
-                ),
+                  ),
 
-                const SizedBox(height: 8),
+                  const SizedBox(height: 8),
 
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

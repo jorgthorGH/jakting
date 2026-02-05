@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/features/auth/presentation/pages/reg_new_user.dart';
 import 'package:jaktapp/features/auth/presentation/pages/item_overview.dart';
+import 'package:jaktapp/features/auth/presentation/pages/reg_page.dart';
 import 'package:jaktapp/features/auth/presentation/pages/terreng_page.dart';
 import 'core/data/mock_terreng_data.dart';
 import 'features/auth/presentation/pages/landing_page.dart';

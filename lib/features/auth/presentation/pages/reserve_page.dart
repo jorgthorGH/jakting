@@ -5,11 +5,11 @@ import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/section_header.dart';
-import 'package:jaktapp/features/auth/presentation/pages/fill_out_hunt_card.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/models/terreng_data.dart';
 import '../../../../core/utils/extensions.dart';
+import '../../../../core/navigation/navigation.dart';
 
 class ReservePage extends StatelessWidget {
   final TerrengData terreng;
@@ -25,7 +25,7 @@ class ReservePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProfileHeader(),
+            const ProfileHeader(),
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,10 +50,7 @@ class ReservePage extends StatelessWidget {
                         text: "Fyll ut jaktkort",
                         btnIcon: AppAssets.huntCardIcon,
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => FillOutHuntCard())
-                          );
+                          AppNav.navigateToHuntingCard(context);
                         },
                         btnColor: AppColors.primaryBtnColor,
                         textColor: AppColors.white,
@@ -66,7 +63,7 @@ class ReservePage extends StatelessWidget {
                         text: "Kanselere reservasjon",
                         btnIcon: AppAssets.cancelX,
                         onPressed: () {
-                          Navigator.pop(context);
+                          AppNav.navigateBack(context);
                         },
                         btnColor: AppColors.white,
                         textColor: AppColors.vippsColor,

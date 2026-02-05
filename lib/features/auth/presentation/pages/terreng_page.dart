@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:jaktapp/core/navigation/navigation.dart';
 import 'package:jaktapp/core/widgets/card_scrollable.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/scrollable_daypicker.dart';
-import 'package:jaktapp/features/auth/presentation/pages/item_overview.dart';
 
 import '../../../../core/data/mock_terreng_data.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/utils/extensions.dart';
 
 class TerrengPage extends StatefulWidget {
   const TerrengPage({super.key});
@@ -26,7 +25,7 @@ class _TerrengPageState extends State<TerrengPage> {
       backgroundColor: AppColors.background,
       body: Column(
         children: [
-          ProfileHeader(),
+          const ProfileHeader(),
 
           Padding(
             padding: const EdgeInsets.all(30),
@@ -46,9 +45,7 @@ class _TerrengPageState extends State<TerrengPage> {
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-
               itemCount: data.length,
-
               separatorBuilder: (context, index) => const SizedBox(height: 30),
               itemBuilder: (context, index) {
                 final item = data[index];
@@ -58,12 +55,7 @@ class _TerrengPageState extends State<TerrengPage> {
                   img: item.img,
                   isAvailable: item.isAvailable,
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ItemOverview(terreng: item, selectedDate: _selectedDate),
-                      ),
-                    );
+                    AppNav.navigateToOverview(context, item, _selectedDate);
                   },
                 );
               },

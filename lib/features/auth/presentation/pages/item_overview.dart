@@ -4,10 +4,10 @@ import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/section_header.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
-import 'package:jaktapp/features/auth/presentation/pages/reserve_page.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/models/terreng_data.dart';
+import '../../../../core/navigation/navigation.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
 
@@ -21,18 +21,6 @@ class ItemOverview extends StatelessWidget {
     required this.selectedDate
   });
 
-  void _navigateToReservation(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ReservePage(
-            terreng: terreng,
-            selectedDate: selectedDate
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +28,6 @@ class ItemOverview extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-
             const ProfileHeader(),
 
             Padding(
@@ -50,9 +37,7 @@ class ItemOverview extends StatelessWidget {
                 children: [
                   SectionHeader(terreng.title),
 
-                  const SizedBox(height: 30),
-
-                  _buildDetailCard(context),
+                  _buildInfoCard(context),
                 ],
               ),
             ),
@@ -62,7 +47,7 @@ class ItemOverview extends StatelessWidget {
     );
   }
 
-  Widget _buildDetailCard(BuildContext context) {
+  Widget _buildInfoCard(BuildContext context) {
     return InfoCard(
       backgroundColor: AppColors.infoCardColorSecondary,
       imagePath: terreng.img,
@@ -73,7 +58,7 @@ class ItemOverview extends StatelessWidget {
       btn: CustomButton(
         text: "Reserver",
         btnIcon: AppAssets.reserveIcon,
-        onPressed: () => _navigateToReservation(context),
+        onPressed: () => AppNav.navigateToReservation(context, terreng, selectedDate),
         btnColor: AppColors.primaryBtnColor,
         textColor: AppColors.white,
         width: context.width,
