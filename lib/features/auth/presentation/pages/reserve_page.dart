@@ -4,6 +4,7 @@ import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
+import 'package:jaktapp/core/widgets/section_header.dart';
 import 'package:jaktapp/features/auth/presentation/pages/fill_out_hunt_card.dart';
 
 import '../../../../core/constants/app_assets.dart';
@@ -24,10 +25,7 @@ class ReservePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProfileHeader(
-              height: context.height * 0.20,
-              logoBottomOffset: context.height * 0.04,
-            ),
+            ProfileHeader(),
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,15 +35,7 @@ class ReservePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        terreng.title,
-                        style: GoogleFonts.aleo(
-                          fontSize: 28,
-                          color: AppColors.white,
-                        ),
-                      ),
-
-                      const SizedBox(height: 20),
+                      SectionHeader(terreng.title),
 
                       Image.asset(
                         terreng.img,

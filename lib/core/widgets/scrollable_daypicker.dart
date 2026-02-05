@@ -53,14 +53,14 @@ class _ScrollableDayPickerState extends State<ScrollableDayPicker> {
           padding: const EdgeInsets.symmetric(horizontal: 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Text(
+              Text(
                 "Våre terreng",
-                style: TextStyle(
+                style: GoogleFonts.aleo(
                   color: AppColors.white,
-                  fontSize: 22,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Aleo',
                 ),
               ),
               Text(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
+import 'package:jaktapp/core/widgets/section_header.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
 import 'package:jaktapp/features/auth/presentation/pages/reserve_page.dart';
 
@@ -15,8 +15,23 @@ class ItemOverview extends StatelessWidget {
   final TerrengData terreng;
   final DateTime selectedDate;
 
+  const ItemOverview({
+    super.key,
+    required this.terreng,
+    required this.selectedDate
+  });
 
-  const ItemOverview({super.key, required this.terreng, required this.selectedDate});
+  void _navigateToReservation(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ReservePage(
+            terreng: terreng,
+            selectedDate: selectedDate
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,66 +40,43 @@ class ItemOverview extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ProfileHeader(
-              height: context.height * 0.20,
-              logoBottomOffset: context.height * 0.04,
-            ),
 
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        terreng.title,
-                        style: GoogleFonts.aleo(
-                          fontSize: 28,
-                          color: AppColors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+            const ProfileHeader(),
 
-                      const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SectionHeader(terreng.title),
 
-                      Column(
-                        children: [
-                          InfoCard(
-                            backgroundColor: AppColors.infoCardColorSecondary,
-                            imagePath: terreng.img,
-                            text: terreng.content,
-                            infoBox: terreng.info != null
-                                ? SmallInfoBox(text: terreng.info!)
-                                : null,
-                            date: "${selectedDate.day}.${selectedDate.month}.${selectedDate.year}",
-                            isAvailable: terreng.isAvailable,
+                  const SizedBox(height: 30),
 
-                            btn: CustomButton(
-                                text: "Reserver",
-                                btnIcon: AppAssets.reserveIcon,
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ReservePage(terreng: terreng, selectedDate: selectedDate),
-                                    ),
-                                  );
-                                },
-                                btnColor: AppColors.primaryBtnColor,
-                                textColor: AppColors.white,
-                                width: context.width,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                  _buildDetailCard(context),
+                ],
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildDetailCard(BuildContext context) {
+    return InfoCard(
+      backgroundColor: AppColors.infoCardColorSecondary,
+      imagePath: terreng.img,
+      text: terreng.content,
+      infoBox: terreng.info != null ? SmallInfoBox(text: terreng.info!) : null,
+      date: selectedDate.toNorwegianDate,
+      isAvailable: terreng.isAvailable,
+      btn: CustomButton(
+        text: "Reserver",
+        btnIcon: AppAssets.reserveIcon,
+        onPressed: () => _navigateToReservation(context),
+        btnColor: AppColors.primaryBtnColor,
+        textColor: AppColors.white,
+        width: context.width,
       ),
     );
   }

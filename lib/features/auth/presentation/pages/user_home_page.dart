@@ -7,6 +7,7 @@ import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaktapp/core/widgets/section_header.dart';
 import 'package:jaktapp/features/auth/presentation/pages/reg_new_user.dart';
 import 'package:jaktapp/features/auth/presentation/pages/terreng_page.dart';
 
@@ -37,23 +38,12 @@ class _UserHomePageState extends State<UserHomePage> {
                 children: [
                   SizedBox(height: headerHeight),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 30,
-                    ),
+                    padding: const EdgeInsets.all(30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Forrige turer",
-                          style: GoogleFonts.aleo(
-                            fontSize: 28,
-                            color: AppColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 30),
-                        const SizedBox(height: 30),
+                        SectionHeader("Forrige turer"),
+
                         CustomButton(
                           text: "Registrer ny person",
                           btnIcon: AppAssets.personWhite,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/widgets/faq_card.dart';
 import 'package:jaktapp/core/widgets/info_card.dart';
+import 'package:jaktapp/core/widgets/section_header.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
@@ -26,21 +27,15 @@ class MoreFaq extends StatelessWidget {
             logoBottomOffset: logoBottomOffset,
           ),
 
-          const SizedBox(height: 20),
-
-          Text(
-            "Ofte stilte spørsmål",
-            style: GoogleFonts.poppins(
-              color: AppColors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
           Padding(
             padding: const EdgeInsets.all(30),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SectionHeader("Ofte stilte spørsmål"),
+
+                const SizedBox(height: 30),
+
                 FaqCard(
                   question:
                       "I dag er det søndag. Hvorfor har jeg bare søndag, mandag og tirsdag på kalenderen?",
@@ -54,7 +49,9 @@ class MoreFaq extends StatelessWidget {
                     textColor: AppColors.whiteBtnText,
                   ),
                 ),
+
                 const SizedBox(height: 30),
+
                 FaqCard(
                   question:
                       "Hva skal jeg gjøre om flere deltagere ønsker å delta på jaken, når jeg allerede har skrevet ut jaktkort?",

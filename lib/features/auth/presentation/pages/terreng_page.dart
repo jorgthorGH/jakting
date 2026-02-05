@@ -26,10 +26,7 @@ class _TerrengPageState extends State<TerrengPage> {
       backgroundColor: AppColors.background,
       body: Column(
         children: [
-          ProfileHeader(
-            height: context.height * 0.20,
-            logoBottomOffset: context.height * 0.04,
-          ),
+          ProfileHeader(),
 
           Padding(
             padding: const EdgeInsets.all(30),
@@ -40,7 +37,6 @@ class _TerrengPageState extends State<TerrengPage> {
                     setState(() {
                       _selectedDate = newDate;
                     });
-                    print("Bruker valgte: $_selectedDate");
                   },
                 ),
               ],

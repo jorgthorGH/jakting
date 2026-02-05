@@ -8,28 +8,30 @@ import '../../../../core/utils/extensions.dart';
 import '../../features/auth/presentation/pages/update_user.dart';
 import '../data/mock_user_data.dart';
 
-// Headeren som vises for en innlogget bruker. Bruker foreløpig placeholder navn gjennom utvikling av frontend.
+// Headeren som vises for en innlogget bruker.
 
 class ProfileHeader extends StatelessWidget {
   final double? height;
-  final double logoBottomOffset;
-  final double logoWidthPercent;
+  final double? logoBottomOffset;
+  final double avatar;
   final UserModel? user;
 
   const ProfileHeader({
     super.key,
     this.height,
-    this.logoBottomOffset = 30,
-    this.logoWidthPercent = 0.15,
+    this.logoBottomOffset,
+    this.avatar = 0.15,
     this.user,
   });
 
   @override
   Widget build(BuildContext context) {
     final currentUser = user ?? MockUserData.profile;
+    final double effectiveHeight = height ?? context.height * 0.20;
+    final double effectiveOffset = logoBottomOffset ?? context.height * 0.04;
 
     return SizedBox(
-      height: height,
+      height: effectiveHeight,
       width: double.infinity,
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -43,14 +45,14 @@ class ProfileHeader extends StatelessWidget {
           ),
 
           Positioned(
-            bottom: logoBottomOffset,
+            bottom: effectiveOffset,
             left: 30,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SvgPicture.asset(
                   AppAssets.logoSmall,
-                  width: context.width * logoWidthPercent,
+                  width: context.width * avatar,
                   fit: BoxFit.contain,
                 ),
 
