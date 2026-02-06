@@ -50,7 +50,7 @@ class ReservePage extends StatelessWidget {
                         text: "Fyll ut jaktkort",
                         btnIcon: AppAssets.huntCardIcon,
                         onPressed: () {
-                          AppNav.navigateToHuntingCard(context);
+                          AppNav.navigateToHuntingCard(context, terreng, selectedDate);
                         },
                         btnColor: AppColors.primaryBtnColor,
                         textColor: AppColors.white,

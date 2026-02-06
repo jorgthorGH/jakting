@@ -8,10 +8,17 @@ import '../../../../../core/models/terreng_data.dart';
 class AppNav {
   AppNav._();
 
-  static void navigateToHuntingCard(BuildContext context) {
+  static void navigateToHuntingCard(
+    BuildContext context,
+    TerrengData terreng,
+    DateTime selectedDate,
+  ) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => FillOutHuntCard()),
+      MaterialPageRoute(
+        builder: (context) =>
+            FillOutHuntCard(terreng: terreng, selectedDate: selectedDate),
+      ),
     );
   }
 

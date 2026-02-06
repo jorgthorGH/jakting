@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaktapp/core/data/mock_terreng_data.dart';
 import 'package:jaktapp/core/data/mock_user_data.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/utils/extensions.dart';
+import 'package:jaktapp/core/widgets/item_card.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
 import 'package:jaktapp/core/widgets/section_header.dart';
 import 'package:jaktapp/core/widgets/user_info_card.dart';
@@ -10,8 +12,10 @@ import 'package:jaktapp/core/widgets/user_info_card.dart';
 import '../../../../core/models/terreng_data.dart';
 
 class FillOutHuntCard extends StatelessWidget{
+  final TerrengData terreng;
+  final DateTime selectedDate;
 
-  const FillOutHuntCard({super.key});
+  const FillOutHuntCard({super.key, required this.terreng, required this.selectedDate});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +39,13 @@ class FillOutHuntCard extends StatelessWidget{
                     editLink: "Endre nummer",
                   ),
 
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 30),
 
+                  ItemCard(
+                      title: terreng.title,
+                      imagePath: terreng.img,
+                      date: selectedDate,
+                  ),
                 ],
               ),
             ),
