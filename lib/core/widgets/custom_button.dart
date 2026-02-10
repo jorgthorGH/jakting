@@ -7,6 +7,7 @@ import '../utils/extensions.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final String btnIcon;
+  final String? secondaryBtnIcon;
   final VoidCallback onPressed;
   final Color btnColor;
   final Color textColor;
@@ -22,6 +23,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.btnColor,
     required this.textColor,
+    this.secondaryBtnIcon,
     this.width,
     this.height,
     this.isLoading = false,
@@ -68,9 +70,21 @@ class CustomButton extends StatelessWidget {
                   Flexible(
                     child: Text(
                       text,
-                      style: GoogleFonts.poppins(fontSize: 16, color: textColor),
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: textColor,
+                      ),
                     ),
                   ),
+                  if (secondaryBtnIcon != null) ...[
+                    const SizedBox(width: 8),
+                    const Spacer(),
+                    Image.asset(
+                      secondaryBtnIcon!,
+                      width: iconSizeResponsive,
+                      height: iconSizeResponsive,
+                    ),
+                  ],
                 ],
               ),
       ),

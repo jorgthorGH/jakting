@@ -29,6 +29,9 @@ class AppAssets {
   static const String huntCardIcon = 'assets/images/huntCardIcon.png';
   static const String cancelX = 'assets/images/cancelX.png';
   static const String phoneIconWhite = 'assets/images/phoneIconWhite.png';
+  static const String trashIcon = 'assets/images/trashIcon.png';
+  static const String arrowWhite = 'assets/images/arrowWhite.png';
+  static const String add = 'assets/images/add.png';
 
   // Logo/header
   static const String jaktingHeader = 'assets/images/jakting.png';

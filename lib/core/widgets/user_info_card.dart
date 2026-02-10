@@ -50,6 +50,7 @@ class UserInfoCard extends StatelessWidget {
                   onPressed: () {},
                   btnColor: AppColors.tertiaryBtnColor,
                   textColor: AppColors.white,
+                  iconSize: 18,
                 ),
               ),
 

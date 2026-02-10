@@ -13,6 +13,8 @@ class AppColors {
   static const Color infoCardColorSecondary = Color(0xff121210);
   static const Color smallInfoBoxColor = Color(0xff1e1c19);
   static const Color whiteBtnText = Color(0xff0b1015);
+  static const Color memberCardBackground = Color(0xff171715);
+  static const Color guestCardBackground = Color(0xff121210);
   static const Gradient itemCardBackground = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
