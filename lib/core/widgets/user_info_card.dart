@@ -47,7 +47,9 @@ class UserInfoCard extends StatelessWidget {
                 child: CustomButton(
                   text: phone,
                   btnIcon: AppAssets.phoneIconWhite,
-                  onPressed: () {},
+                  onPressed: () {
+                    print("Ringer...");
+                  },
                   btnColor: AppColors.tertiaryBtnColor,
                   textColor: AppColors.white,
                   iconSize: 18,

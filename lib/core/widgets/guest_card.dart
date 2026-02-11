@@ -6,6 +6,7 @@ import '../theme/app_colors.dart';
 import '../utils/extensions.dart';
 import 'add_member.dart';
 import 'custom_button.dart';
+import 'member_list_item.dart';
 
 class GuestCard extends StatefulWidget {
   const GuestCard({super.key});
@@ -47,17 +48,19 @@ class _GuestCardState extends State<GuestCard> {
 
           ...guests.map((name) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: CustomButton(
-                width: double.infinity,
-                text: name,
-                btnIcon: AppAssets.iconPerson,
-                secondaryBtnIcon: AppAssets.trashIcon,
-                iconSize: 18,
-                btnColor: AppColors.secondaryBtnColor,
+              padding: const EdgeInsets.only(bottom: 12),
+              child: MemberListItem(
+                name: name,
+                personIconPath: AppAssets.iconPerson,
+                trashIconPath: AppAssets.trashIcon,
+                bgColor: AppColors.secondaryBtnColor,
                 textColor: AppColors.white,
 
-                onPressed: () {
+                onEditPressed: () {
+                  print("Åpne redigering for dette medlemmet");
+                },
+
+                onDeleteConfirmed: () {
                   setState(() {
                     guests.remove(name);
                   });
@@ -66,16 +69,15 @@ class _GuestCardState extends State<GuestCard> {
             );
           }),
 
-          const SizedBox(height: 20),
-
           AddMember(
-            hintText: "Navn på medlem",
+            hintText: "Trykk på + for å legge til",
             onAdd: (newName) {
               setState(() {
                 guests.add(newName);
               });
             },
           ),
+          const SizedBox(height: 20),
         ],
       ),
     );

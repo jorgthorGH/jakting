@@ -53,7 +53,7 @@ class _FillOutHuntCardState extends State<FillOutHuntCard> {
                   UserInfoCard(
                     userName: MockUserData.profile.name,
                     phone: MockUserData.profile.phone,
-                    editLink: "Endre nummer",
+                    editLink: "Endre nummer", // Naviger til update_user
                   ),
 
                   const SizedBox(height: 30),
@@ -69,8 +69,6 @@ class _FillOutHuntCardState extends State<FillOutHuntCard> {
 
             MemberCard(),
 
-            const SizedBox(height: 30),
-
             GuestCard(),
 
             const SizedBox(height: 30),
@@ -83,7 +81,9 @@ class _FillOutHuntCardState extends State<FillOutHuntCard> {
                   CustomButton(
                     text: "Send på SMS",
                     btnIcon: AppAssets.arrowWhite,
-                    onPressed: () {},
+                    onPressed: () {
+                      print("Jaktkort sendt via SMS");
+                    },
                     btnColor: AppColors.primaryBtnColor,
                     textColor: AppColors.white,
                     iconSize: 18,
@@ -94,7 +94,9 @@ class _FillOutHuntCardState extends State<FillOutHuntCard> {
                   CustomButton(
                     text: "Avbryt",
                     btnIcon: AppAssets.cancelX,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                     btnColor: AppColors.white,
                     textColor: AppColors.vippsColor,
                     iconSize: 18,

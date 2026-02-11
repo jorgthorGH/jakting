@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/widgets/add_member.dart';
 import 'package:jaktapp/core/widgets/custom_button.dart';
+import 'package:jaktapp/core/widgets/member_list_item.dart';
 import 'package:jaktapp/core/widgets/section_header.dart';
 
 import '../theme/app_colors.dart';
@@ -48,17 +49,19 @@ class _MemberCardState extends State<MemberCard> {
 
           ...members.map((name) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: CustomButton( // Bør byttes til en sekundær knapp for å unngå uønsket oppførsel (Slett on pressed). Bør slettes kun ved trykk på trashIcon
-                width: double.infinity,
-                text: name,
-                btnIcon: AppAssets.iconPerson,
-                secondaryBtnIcon: AppAssets.trashIcon,
-                iconSize: 18,
-                btnColor: AppColors.secondaryBtnColor,
+              padding: const EdgeInsets.only(bottom: 12),
+              child: MemberListItem(
+                name: name,
+                personIconPath: AppAssets.iconPerson,
+                trashIconPath: AppAssets.trashIcon,
+                bgColor: AppColors.secondaryBtnColor,
                 textColor: AppColors.white,
 
-                onPressed: () {
+                onEditPressed: () {
+                  print("Åpne redigering for dette medlemmet");
+                },
+
+                onDeleteConfirmed: () {
                   setState(() {
                     members.remove(name);
                   });
@@ -67,16 +70,15 @@ class _MemberCardState extends State<MemberCard> {
             );
           }),
 
-          const SizedBox(height: 20),
-
           AddMember(
-            hintText: "Navn på medlem",
+            hintText: "Trykk på + for å legge til",
             onAdd: (newName) {
               setState(() {
                 members.add(newName);
               });
             },
           ),
+          const SizedBox(height: 20),
         ],
       ),
     );
