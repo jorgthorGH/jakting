@@ -32,6 +32,7 @@ class AppAssets {
   static const String trashIcon = 'assets/images/trashIcon.png';
   static const String arrowWhite = 'assets/images/arrowWhite.png';
   static const String add = 'assets/images/add.png';
+  static const String vectorStrokeBlack = 'assets/images/terrengsvart.png';
 
   // Logo/header
   static const String jaktingHeader = 'assets/images/jakting.png';

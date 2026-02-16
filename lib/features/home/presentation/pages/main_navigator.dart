@@ -3,6 +3,7 @@ import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:jaktapp/core/widgets/custom_navbar.dart';
 import 'package:jaktapp/features/auth/presentation/pages/terreng_page.dart';
 import 'package:jaktapp/features/auth/presentation/pages/user_home_page.dart';
+import 'package:jaktapp/features/home/presentation/pages/varsler_page.dart';
 
 import '../../../../core/widgets/more_menu_sheet.dart';
 
@@ -34,7 +35,7 @@ class _MainNavigationState extends State<MainNavigator> {
     super.initState();
     _pages = [
       _buildNavigator(_navigatorKeys[0], const TerrengPage()),
-      _buildNavigator(_navigatorKeys[1], const Center(child: Text("Varsler", style: TextStyle(color: AppColors.white)))),
+      _buildNavigator(_navigatorKeys[1], const VarslerPage()),
       _buildNavigator(_navigatorKeys[2], const UserHomePage()),
       const SizedBox(),
     ];
@@ -50,13 +51,9 @@ class _MainNavigationState extends State<MainNavigator> {
           Navigator.pop(context);
           final activeNavigator = _navigatorKeys[_currentIndex].currentState;
           if (activeNavigator != null) {
-            activeNavigator.push(
-              MaterialPageRoute(
-                builder: (context) => page,
-              ),
-            );
+            activeNavigator.push(MaterialPageRoute(builder: (context) => page));
           }
-        }
+        },
       ),
     );
   }
@@ -77,29 +74,23 @@ class _MainNavigationState extends State<MainNavigator> {
       onPopInvoked: (didPop) async {
         if (didPop) return;
 
-        final NavigatorState? currentNavigator = _navigatorKeys[_currentIndex].currentState;
+        final NavigatorState? currentNavigator =
+            _navigatorKeys[_currentIndex].currentState;
 
         if (currentNavigator != null && currentNavigator.canPop()) {
           currentNavigator.pop();
-        }
-
-        else if (_currentIndex != 0) {
+        } else if (_currentIndex != 0) {
           setState(() {
             _currentIndex = 0;
           });
-        }
-
-        else {
+        } else {
           if (context.mounted) Navigator.of(context).pop();
         }
       },
 
       child: Scaffold(
         backgroundColor: AppColors.background,
-        body: IndexedStack(
-          index: _currentIndex,
-          children: _pages,
-        ),
+        body: IndexedStack(index: _currentIndex, children: _pages),
         bottomNavigationBar: CustomNavbar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -107,14 +98,16 @@ class _MainNavigationState extends State<MainNavigator> {
               _showMoreMenu();
             } else {
               if (_currentIndex == index) {
-                _navigatorKeys[index].currentState?.popUntil((route) => route.isFirst);
+                _navigatorKeys[index].currentState?.popUntil(
+                  (route) => route.isFirst,
+                );
               } else {
                 setState(() {
                   _currentIndex = index;
                 });
               }
             }
-          }
+          },
         ),
       ),
     );
