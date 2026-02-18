@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/widgets/custom_button.dart';
+import 'package:jaktapp/core/widgets/item_attributes.dart';
 import 'package:jaktapp/core/widgets/small_info_box.dart';
+
+import '../models/terreng_data.dart';
 
 // Et kort som viser informasjon om valgt terreng/utstyr. Navnet på klassen bør endres for å bedre reflektere hva det faktisk er og brukes til.
 
@@ -71,7 +75,11 @@ class InfoCard extends StatelessWidget {
 
                 Row(
                   children: [
-                    const Icon(Icons.calendar_today_outlined, color: AppColors.white, size: 18),
+                    const Icon(
+                      Icons.calendar_today_outlined,
+                      color: AppColors.white,
+                      size: 18,
+                    ),
                     const SizedBox(width: 5),
                     Text(
                       date,
@@ -85,7 +93,10 @@ class InfoCard extends StatelessWidget {
                     const Spacer(),
 
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 3,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.cardBackground,
                         borderRadius: BorderRadius.circular(10),
