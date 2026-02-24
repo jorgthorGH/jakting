@@ -1,5 +1,4 @@
 class AppAssets {
-
   // Icons
   static const String personWhite = 'assets/images/personWhite.png';
   static const String genderIcon = 'assets/images/genderIcon.png';
@@ -33,7 +32,8 @@ class AppAssets {
   static const String arrowWhite = 'assets/images/arrowWhite.png';
   static const String add = 'assets/images/add.png';
   static const String vectorStrokeBlack = 'assets/images/terrengsvart.png';
-
+  static const String gpsIcon = 'assets/images/gpsIcon.png';
+  static const String contactIcon = 'assets/images/kontaktIcon.png';
   // Logo/header
   static const String jaktingHeader = 'assets/images/jakting.png';
   static const String logoVector = 'assets/images/Vector.png';

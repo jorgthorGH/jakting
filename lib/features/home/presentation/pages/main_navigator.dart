@@ -19,7 +19,17 @@ class MainNavigator extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigator> {
+  // Which tab's content is shown in the body
   int _currentIndex = 0;
+
+  // Which icon is highlighted in the navbar
+  int _navIndex = 0;
+
+  // Which icon was selected before opening the More menu
+  int _previousNavIndex = 0;
+
+  // Whether the More overlay is visible
+  bool _isMoreOpen = false;
 
   final List<GlobalKey<NavigatorState>> _navigatorKeys = [
     GlobalKey<NavigatorState>(),
@@ -41,21 +51,21 @@ class _MainNavigationState extends State<MainNavigator> {
     ];
   }
 
-  void _showMoreMenu() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => MoreMenuSheet(
-        onNavigate: (Widget page) {
-          Navigator.pop(context);
-          final activeNavigator = _navigatorKeys[_currentIndex].currentState;
-          if (activeNavigator != null) {
-            activeNavigator.push(MaterialPageRoute(builder: (context) => page));
-          }
-        },
-      ),
-    );
+  void _openMoreMenu() {
+    setState(() {
+      _previousNavIndex = _navIndex;
+      _isMoreOpen = true;
+      _navIndex = 3;
+    });
+  }
+
+  void _closeMoreMenu({bool restorePrevious = true}) {
+    setState(() {
+      _isMoreOpen = false;
+      if (restorePrevious && _navIndex == 3) {
+        _navIndex = _previousNavIndex;
+      }
+    });
   }
 
   Widget _buildNavigator(GlobalKey<NavigatorState> key, Widget child) {
@@ -90,20 +100,57 @@ class _MainNavigationState extends State<MainNavigator> {
 
       child: Scaffold(
         backgroundColor: AppColors.background,
-        body: IndexedStack(index: _currentIndex, children: _pages),
+        body: Stack(
+          children: [
+            IndexedStack(index: _currentIndex, children: _pages),
+            if (_isMoreOpen) ...[
+              // Dark scrim over content but under navbar
+              Positioned.fill(
+                child: GestureDetector(
+                  onTap: () => _closeMoreMenu(),
+                  child: Container(color: Colors.black.withOpacity(0.6)),
+                ),
+              ),
+              // The More overlay sheet
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: MoreMenuSheet(
+                  onNavigate: (Widget page) {
+                    _closeMoreMenu(restorePrevious: false);
+                    final activeNavigator =
+                        _navigatorKeys[_currentIndex].currentState;
+                    if (activeNavigator != null) {
+                      activeNavigator.push(
+                        MaterialPageRoute(builder: (context) => page),
+                      );
+                    }
+                  },
+                  onClose: () => _closeMoreMenu(),
+                ),
+              ),
+            ],
+          ],
+        ),
         bottomNavigationBar: CustomNavbar(
-          currentIndex: _currentIndex,
+          currentIndex: _navIndex,
           onTap: (index) {
             if (index == 3) {
-              _showMoreMenu();
+              _openMoreMenu();
             } else {
+              if (_isMoreOpen) {
+                _closeMoreMenu();
+              }
               if (_currentIndex == index) {
+                setState(() {
+                  _navIndex = index;
+                });
                 _navigatorKeys[index].currentState?.popUntil(
                   (route) => route.isFirst,
                 );
               } else {
                 setState(() {
                   _currentIndex = index;
+                  _navIndex = index;
                 });
               }
             }

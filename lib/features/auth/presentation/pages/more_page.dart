@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:jaktapp/features/auth/presentation/pages/faq.dart';
+import 'package:jaktapp/features/home/presentation/pages/jaktregler_page.dart';
+
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/extensions.dart';
 import '../../../../core/widgets/list_link_items.dart';
 import '../../../../core/widgets/profile_header.dart';
-import 'package:jaktapp/features/auth/presentation/pages/faq.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
@@ -30,11 +32,7 @@ class MorePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: const Icon(
-                  Icons.close,
-                  color:AppColors.white,
-                  size: 30,
-                ),
+                icon: const Icon(Icons.close, color: AppColors.white, size: 30),
               ),
             ),
           ),
@@ -46,20 +44,26 @@ class MorePage extends StatelessWidget {
               children: [
                 MoreLinkItem(
                   title: "Ofte stilte spørsmål",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MoreFaq()),
+                    );
+                  },
                 ),
                 MoreLinkItem(
                   title: "Jaktregler",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const JaktreglerPage(),
+                      ),
+                    );
+                  },
                 ),
-                MoreLinkItem(
-                  title: "Jaktutvalg",
-                  onTap: () {},
-                ),
-                MoreLinkItem(
-                  title: "Terrenggrenser til GPS",
-                  onTap: () {},
-                ),
+                MoreLinkItem(title: "Jaktutvalg", onTap: () {}),
+                MoreLinkItem(title: "Terrenggrenser til GPS", onTap: () {}),
               ],
             ),
           ),

@@ -17,16 +17,22 @@ class CustomNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: AppColors.greyWhite,
-        borderRadius: BorderRadius.circular(50),
-      ),
+      // Black strip behind the floating white navbar, matching design
+      color: AppColors.background,
+      // Larger side margins so the pill sits further from the edges.
+      // Bottom padding to control vertical position of the pill.
+      padding: const EdgeInsets.fromLTRB(18, 8, 18, 6),
       child: SafeArea(
         top: false,
-        child: Padding(
-          padding: const EdgeInsets.all(0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.greyWhite,
+            borderRadius: BorderRadius.circular(40),
+          ),
+          // Small top padding so icons sit close to top edge of pill
+          padding: const EdgeInsets.fromLTRB(10, 4, 10, 0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _NavBarItem(
                 selectedImage: AppAssets.terrengNav,
@@ -79,10 +85,10 @@ class _NavBarItem extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
         child: Image.asset(
           isSelected ? selectedImage : unselectedImage,
-          height: 40,
+          height: 52,
         ),
       ),
     );
