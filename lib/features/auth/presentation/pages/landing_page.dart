@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/header_full.dart';
 
-import '../../../../features/auth/presentation/pages/login_page.dart';
-import '../../../../core/utils/extensions.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/extensions.dart';
+import '../../../../features/auth/presentation/pages/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -32,7 +32,6 @@ class HomePage extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-
                 SizedBox(height: context.height * 0.55),
 
                 Padding(
@@ -45,7 +44,9 @@ class HomePage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const LoginPage()),
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
                           );
                         },
                         btnColor: AppColors.primaryBtnColor,

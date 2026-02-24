@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../constants/app_assets.dart';
 import '../theme/app_colors.dart';
 
+// Tekstfelt som brukes for registrerings- og loginskjemaer.
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final String iconPath;
@@ -22,7 +24,7 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.color,
-   this.showEditIcon = false, 
+    this.showEditIcon = false,
   });
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,25 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: color ?? Colors.white,
-        hintText: smallText != null ? '$hintText $smallText' : hintText,
-        hintStyle: GoogleFonts.poppins(color: AppColors.hintText),
+        // Use a label row to support optional smallText, instead of plain hint.
+        hintText: null,
+        label: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              hintText,
+              style: GoogleFonts.poppins(color: AppColors.hintText),
+            ),
+            if (smallText != null)
+              Text(
+                ' $smallText',
+                style: GoogleFonts.poppins(
+                  color: AppColors.hintText,
+                  fontSize: 10,
+                ),
+              ),
+          ],
+        ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         prefixIcon: Padding(
           padding: const EdgeInsets.all(12),
@@ -44,11 +63,7 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: showEditIcon
             ? Padding(
                 padding: const EdgeInsets.all(12),
-                child: Image.asset(
-                  'assets/images/editinput.png', // Or AppAssets.editInput if you add it there
-                  width: 32,
-                  height: 32,
-                ),
+                child: Image.asset(AppAssets.editInput, width: 32, height: 32),
               )
             : null,
         border: OutlineInputBorder(

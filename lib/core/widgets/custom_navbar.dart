@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
+import 'package:jaktapp/core/theme/app_colors.dart';
 
-
+// Foreløpig navbar i bunn av skjermen. Skal mulig byttes? Laget av Khalif.
 class CustomNavbar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
@@ -14,20 +15,23 @@ class CustomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15), // More bottom padding
+    return Container(
+      // Black strip behind the floating white navbar, matching design
+      color: AppColors.background,
+      // Larger side margins so the pill sits further from the edges.
+      // Bottom padding to control vertical position of the pill.
+      padding: const EdgeInsets.fromLTRB(18, 8, 18, 6),
+      child: SafeArea(
+        top: false,
         child: Container(
-          height: 65, // Match Figma height
           decoration: BoxDecoration(
-            color: Colors.white, // Pure white background
-            borderRadius: BorderRadius.circular(32), // More pill-shaped
+            color: AppColors.greyWhite,
+            borderRadius: BorderRadius.circular(40),
           ),
-          
+          // Small top padding so icons sit close to top edge of pill
+          padding: const EdgeInsets.fromLTRB(10, 4, 10, 0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _NavBarItem(
                 selectedImage: AppAssets.terrengNav,
@@ -79,15 +83,11 @@ class _NavBarItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
-      child: SizedBox(
-        width: 80, // Make tap area larger and icons more centered
-        height: 80,
-        child: Center(
-          child: Image.asset(
-            isSelected ? selectedImage : unselectedImage,
-            height: 80, // Icon size
-            width: 80,
-          ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
+        child: Image.asset(
+          isSelected ? selectedImage : unselectedImage,
+          height: 52,
         ),
       ),
     );

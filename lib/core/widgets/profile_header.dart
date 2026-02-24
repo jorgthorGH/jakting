@@ -1,29 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaktapp/core/models/user_model.dart';
+import 'package:jaktapp/core/theme/app_colors.dart';
+
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
+import '../../features/auth/presentation/pages/update_user.dart';
+import '../data/mock_user_data.dart';
 
+// Headeren som vises for en innlogget bruker.
 class ProfileHeader extends StatelessWidget {
-  final double height;
-  final double logoBottomOffset;
-  final double logoWidthPercent;
+  final double? height;
+  final double? logoBottomOffset;
+  final double avatar;
+  final UserModel? user;
 
   const ProfileHeader({
     super.key,
-    required this.height,
-    this.logoBottomOffset = 30,
-    this.logoWidthPercent = 0.15,
+    this.height,
+    this.logoBottomOffset,
+    this.avatar = 0.15,
+    this.user,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Placeholders
-    const String userName = "Kari Nordmann";
+    final currentUser = user ?? MockUserData.profile;
+    final double effectiveHeight = height ?? context.height * 0.20;
+    final double effectiveOffset = logoBottomOffset ?? context.height * 0.04;
 
     return SizedBox(
-      height: height,
+      height: effectiveHeight,
       width: double.infinity,
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -37,14 +45,14 @@ class ProfileHeader extends StatelessWidget {
           ),
 
           Positioned(
-            bottom: logoBottomOffset,
+            bottom: effectiveOffset,
             left: 30,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SvgPicture.asset(
                   AppAssets.logoSmall,
-                  width: context.width * logoWidthPercent,
+                  width: context.width * avatar,
                   fit: BoxFit.contain,
                 ),
 
@@ -55,7 +63,7 @@ class ProfileHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      userName,
+                      currentUser.name,
                       style: GoogleFonts.poppins(
                         color: AppColors.white,
                         fontSize: 18,
@@ -66,8 +74,14 @@ class ProfileHeader extends StatelessWidget {
                     const SizedBox(height: 4),
 
                     GestureDetector(
+                      behavior: HitTestBehavior.opaque,
                       onTap: () {
-                        print("Naviger til rediger profil...");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UpdateUser(),
+                          ),
+                        );
                       },
                       child: Row(
                         children: [

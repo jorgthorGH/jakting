@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
-
-import 'package:jaktapp/core/widgets/item_card.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/profile_header.dart';
-import 'package:jaktapp/core/widgets/info_card.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:jaktapp/core/widgets/section_header.dart';
+import 'package:jaktapp/features/auth/presentation/pages/reg_new_user.dart';
+import 'package:jaktapp/features/auth/presentation/pages/terreng_page.dart';
 
-import '../../../../core/utils/extensions.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/extensions.dart';
 
 class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
@@ -17,7 +17,6 @@ class UserHomePage extends StatefulWidget {
 }
 
 class _UserHomePageState extends State<UserHomePage> {
-
   @override
   Widget build(BuildContext context) {
     final headerHeight = context.height * 0.20;
@@ -26,16 +25,6 @@ class _UserHomePageState extends State<UserHomePage> {
       backgroundColor: AppColors.background,
       body: Stack(
         children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: ProfileHeader(
-              height: headerHeight,
-              logoBottomOffset: context.height * 0.04,
-            ),
-          ),
-
           SingleChildScrollView(
             child: SizedBox(
               width: double.infinity,
@@ -43,42 +32,57 @@ class _UserHomePageState extends State<UserHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: headerHeight),
-
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 30,
-                    ),
+                    padding: const EdgeInsets.all(30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Forrige turer",
-                          style: GoogleFonts.aleo(
-                            fontSize: 28,
-                            color: AppColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        SectionHeader("Forrige turer"),
+
+                        CustomButton(
+                          text: "Registrer ny person",
+                          btnIcon: AppAssets.personWhite,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterNewPerson(),
+                              ),
+                            );
+                          },
+                          btnColor: AppColors.primaryBtnColor,
+                          textColor: Colors.white,
                         ),
-
                         const SizedBox(height: 30),
 
-                        InfoCard(),
-
-                        const SizedBox(height: 30),
-
-                        ItemCard(
-                          header: "Båt & henger",
-                          img: Image.asset(AppAssets.boat),
-                          reportUrl: "Lever fangstrapport",
-                          // Byttes ut med url til fangstrapport
-                          date: DateTime.now(), // Byttes ut med leietidspunkt
+                        CustomButton(
+                          text: "Våre terreng",
+                          btnIcon: AppAssets.terrengIcon,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TerrengPage(),
+                              ),
+                            );
+                          },
+                          btnColor: AppColors.primaryBtnColor,
+                          textColor: AppColors.white,
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: ProfileHeader(
+              height: headerHeight,
+              logoBottomOffset: context.height * 0.04,
             ),
           ),
         ],

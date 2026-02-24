@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/utils/extensions.dart';
 
+// Headeren som vises mens bruker oppretter en brukerprofil eller skriver inn logindetaljer.
 class HeaderMedium extends StatelessWidget {
   final double height;
   final double logoBottomOffset;

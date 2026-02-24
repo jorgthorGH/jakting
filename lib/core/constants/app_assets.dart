@@ -1,12 +1,13 @@
 class AppAssets {
-  static const String jaktingHeader = 'assets/images/jakting.png';
-  static const String logoVector = 'assets/images/Vector.png';
-  static const String iconEmail = 'assets/images/emailicon.png';
-  static const String iconPassword = 'assets/images/pwicon.png';
-  static const String loginIcon = 'assets/images/loginIcon.png';
-  static const String regiIcon = 'assets/images/regiIcon.png';
-  static const String jaktingHeaderFull = 'assets/images/jaktingFull.png';
-  static const String vippsLogo = 'assets/images/vippsLogo.png';
+  // Icons
+  static const String personWhite = 'assets/images/personWhite.png';
+  static const String genderIcon = 'assets/images/genderIcon.png';
+  static const String calendarIcon = 'assets/images/calendarIcon.png';
+  static const String phoneIcon = 'assets/images/phoneIcon.png';
+  static const String terrengIkkeValgt = 'assets/images/terrengikkevalgt.png';
+  static const String merIkkeValgt = 'assets/images/merikkevalgt.png';
+  static const String varslerIkkeValgt = 'assets/images/varlser ikke valgt.png';
+  static const String minSideIkkeValgt = 'assets/images/minsideikkevalgt.png';
   static const String iconPerson = 'assets/images/person.png';
   static const String iconRegistrer = 'assets/images/registrer.png';
   static const String iconTelefon = 'assets/images/telefon.png';
@@ -17,12 +18,31 @@ class AppAssets {
   static const String varslerNav = 'assets/images/varslernav.png';
   static const String minSideNav = 'assets/images/minsidenav.png';
   static const String merNav = 'assets/images/menynav.png';
-  static const String terrengIkkeValgt = 'assets/images/terrengikkevalgt.png';
-  static const String merIkkeValgt = 'assets/images/merikkevalgt.png';
-  static const String varslerIkkeValgt = 'assets/images/varlser ikke valgt.png';
-  static const String minSideIkkeValgt = 'assets/images/minsideikkevalgt.png';
+  static const String vippsLogo = 'assets/images/vippsLogo.png';
+  static const String iconEmail = 'assets/images/emailicon.png';
+  static const String iconPassword = 'assets/images/pwicon.png';
+  static const String loginIcon = 'assets/images/loginIcon.png';
+  static const String regiIcon = 'assets/images/regiIcon.png';
+  static const String terrengIcon = 'assets/images/terrengIcon.png';
+  static const String reserveIcon = 'assets/images/reserveIcon.png';
+  static const String huntCardIcon = 'assets/images/huntCardIcon.png';
+  static const String cancelX = 'assets/images/cancelX.png';
+  static const String phoneIconWhite = 'assets/images/phoneIconWhite.png';
+  static const String trashIcon = 'assets/images/trashIcon.png';
+  static const String arrowWhite = 'assets/images/arrowWhite.png';
+  static const String add = 'assets/images/add.png';
+  static const String vectorStrokeBlack = 'assets/images/terrengsvart.png';
+  static const String gpsIcon = 'assets/images/gpsIcon.png';
+  static const String contactIcon = 'assets/images/kontaktIcon.png';
+
+  // Logo/header
+  static const String jaktingHeader = 'assets/images/jakting.png';
+  static const String logoVector = 'assets/images/Vector.png';
+  static const String jaktingHeaderFull = 'assets/images/jaktingFull.png';
   static const String logoVectorSVG = 'assets/images/logoVector.svg';
   static const String logoSmall = 'assets/images/logoSmall.svg';
+
+  // Misc
   static const String boat = 'assets/images/itemCard_boat.png';
   static const String editInput = 'assets/images/editinput.png';
 }

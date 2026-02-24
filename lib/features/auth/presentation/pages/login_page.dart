@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/utils/extensions.dart';
 import 'package:jaktapp/core/widgets/bottom_card.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 import 'package:jaktapp/core/widgets/header_medium.dart';
 
 import '../../../../core/constants/app_assets.dart';
@@ -96,7 +96,7 @@ class LoginPage extends StatelessWidget {
 
                           GestureDetector(
                             onTap: () {
-                              print ("Naviger til tilbakestilling...");
+                              print("Naviger til tilbakestilling...");
                             },
                             child: Text(
                               "Tilbakestill ditt passord her!",

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaktapp/core/constants/app_assets.dart';
 import 'package:jaktapp/core/theme/app_colors.dart';
-import 'package:jaktapp/core/widgets/button.dart';
+import 'package:jaktapp/core/widgets/custom_button.dart';
 
 class RegisterSuccess extends StatelessWidget {
   final String userName;
@@ -72,43 +72,43 @@ class RegisterSuccess extends StatelessWidget {
 
                 const SizedBox(height: 60),
                 Text(
-                  "Du kan fortsette med", 
-                   style: GoogleFonts.aleo(
-                          color: AppColors.white,
-                          fontSize: 16,
-                          letterSpacing: 0),
-                 ),
+                  "Du kan fortsette med",
+                  style: GoogleFonts.aleo(
+                    color: AppColors.white,
+                    fontSize: 16,
+                    letterSpacing: 0,
+                  ),
+                ),
 
                 const SizedBox(height: 30),
 
                 CustomButton(
-                  text: "Våre terreng", 
-                  btnIcon: AppAssets.iconTrail, 
-                  onPressed: () {}, 
-                  btnColor: AppColors.primaryBtnColor, 
+                  text: "Våre terreng",
+                  btnIcon: AppAssets.iconTrail,
+                  onPressed: () {},
+                  btnColor: AppColors.primaryBtnColor,
                   textColor: AppColors.white,
-                  
-                 
-                  ),
+                ),
 
                 const SizedBox(height: 25),
-                 Text(
-                  "eller", 
-                   style: GoogleFonts.aleo(
-                          color: AppColors.white,
-                          fontSize: 16,
-                          letterSpacing: 0),
-                 ),
+                Text(
+                  "eller",
+                  style: GoogleFonts.aleo(
+                    color: AppColors.white,
+                    fontSize: 16,
+                    letterSpacing: 0,
+                  ),
+                ),
 
-                 const SizedBox(height: 25),
+                const SizedBox(height: 25),
 
-                 CustomButton(
-                  text: "Min side", 
+                CustomButton(
+                  text: "Min side",
                   btnIcon: AppAssets.iconPerson,
                   onPressed: () {},
-                  btnColor: AppColors.secondaryBtnColor, 
-                  textColor: AppColors.white),
-
+                  btnColor: AppColors.secondaryBtnColor,
+                  textColor: AppColors.white,
+                ),
               ],
             ),
           ),

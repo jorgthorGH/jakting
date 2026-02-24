@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jaktapp/features/auth/presentation/pages/login_page.dart';
-import 'package:jaktapp/features/home/presentation/pages/main_navigation.dart';
+import 'package:jaktapp/features/auth/presentation/pages/landing_page.dart';
+import 'package:jaktapp/features/home/presentation/pages/main_navigator.dart';
 
 /// Wrapper that decides whether to show auth screens or main app.
-/// 
+///
 /// For now, uses a simple boolean. Later, replace with your auth state
-/// management (Provider, Riverpod, Bloc, etc.)
+/// management (Provider, Riverpod, Bloc, etc.).
 class AuthWrapper extends StatefulWidget {
   const AuthWrapper({super.key});
 
@@ -14,8 +14,8 @@ class AuthWrapper extends StatefulWidget {
 }
 
 class _AuthWrapperState extends State<AuthWrapper> {
-  // TODO: Replace with real auth state management
-  // For testing: set to true to see navbar, false to see login
+  // TODO: Replace with real auth state management.
+  // For testing: set to true to see main app, false to see landing.
   bool _isLoggedIn = true;
 
   void _onLoginSuccess() {
@@ -33,11 +33,11 @@ class _AuthWrapperState extends State<AuthWrapper> {
   @override
   Widget build(BuildContext context) {
     if (_isLoggedIn) {
-      // User is logged in - show main app with navbar
-      return const MainNavigation();
+      // User is logged in - show main app with bottom navigation
+      return const MainNavigator();
     } else {
-      // User is not logged in - show login page
-      return const LoginPage();
+      // User is not logged in - show landing/login flow
+      return const HomePage();
     }
   }
 }

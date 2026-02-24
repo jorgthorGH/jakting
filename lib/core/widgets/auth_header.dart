@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_assets.dart';
 
+// Headeren som brukes av bruker som ikke er logget inn.
 class AuthHeader extends StatelessWidget {
   const AuthHeader({super.key});
 

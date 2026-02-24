@@ -1,59 +1,64 @@
 import 'package:flutter/material.dart';
-
-import 'package:jaktapp/core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaktapp/core/theme/app_colors.dart';
+import 'package:jaktapp/core/widgets/status_badge.dart';
 
+import 'date_badge.dart';
+
+// Dette kortet skal brukes på en brukers egen profil/Min Side.
 class ItemCard extends StatelessWidget {
-  final Image? img;
-  final String header;
-  final String reportUrl;
+  final String title;
+  final String imagePath;
   final DateTime date;
 
   const ItemCard({
     super.key,
-    this.img,
-    required this.header,
-    required this.reportUrl,
+    required this.title,
+    required this.imagePath,
     required this.date,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        gradient: AppColors.itemCardBackground,
+        color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (img != null) ...[
-              img!,
-              const SizedBox(height: 10),
-            ],
-            Text(
-              header,
-              style: GoogleFonts.poppins(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: AppColors.white,
-              ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              imagePath,
+              width: 92,
+              height: 80,
+              fit: BoxFit.cover,
             ),
-
-            const SizedBox(height: 5),
-
-            Text(
-              reportUrl,
-              style: const TextStyle(
-                color: AppColors.primaryBtnColor,
-                fontWeight: FontWeight.w600,
-              ),
+          ),
+          const SizedBox(width: 15),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    color: AppColors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                const StatusRow(),
+                const SizedBox(height: 8),
+                DateBadge(date: date),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
